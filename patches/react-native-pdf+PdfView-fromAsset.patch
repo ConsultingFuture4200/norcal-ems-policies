@@ -1,14 +1,29 @@
 --- a/node_modules/react-native-pdf/android/src/main/java/org/wonday/pdf/PdfView.java
 +++ b/node_modules/react-native-pdf/android/src/main/java/org/wonday/pdf/PdfView.java
-@@ -291,7 +291,12 @@
+@@ -281,7 +281,7 @@
+     public void drawPdf() {
+         showLog(format("drawPdf path:%s %s", this.path, this.page));
+
+-        if (this.path != null){
++        if (this.path != null && !this.path.isEmpty()){
+
+             // set scale
+             this.setMinZoom(this.minScale);
+@@ -291,7 +291,16 @@
 
              Configurator configurator;
 
 -            if (this.path.startsWith("content://")) {
 +            if (this.path.startsWith("/android_asset/")) {
-+                // Load directly from bundled assets using barteksc's fromAsset
++                // Load directly from bundled assets via InputStream (works with any compression)
 +                String assetName = this.path.substring("/android_asset/".length());
-+                configurator = this.fromAsset(assetName);
++                try {
++                    InputStream assetStream = getContext().getAssets().open(assetName);
++                    configurator = this.fromStream(assetStream);
++                } catch (java.io.IOException e) {
++                    this.onError(new RuntimeException("Cannot open asset: " + assetName + ": " + e.getMessage()));
++                    return;
++                }
 +            } else if (this.path.startsWith("content://")) {
                  ContentResolver contentResolver = getContext().getContentResolver();
                  InputStream inputStream = null;

@@ -1,0 +1,20 @@
+{
+  "name": "norcal-ems-pipeline",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "pipeline": "node pipeline.js",
+    "scrape": "node scrape-policies.js",
+    "download": "node download-pdfs.js",
+    "extract": "node extract-text.js",
+    "metadata": "node generate-metadata.js",
+    "build-db": "node build-sqlite.js"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0",
+    "better-sqlite3": "^11.0.0",
+    "pdf-parse": "^1.1.1",
+    "node-fetch": "^3.3.0"
+  }
+}

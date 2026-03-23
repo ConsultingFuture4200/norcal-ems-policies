@@ -1,0 +1,15 @@
+--- a/node_modules/react-native-pdf/android/src/main/java/org/wonday/pdf/PdfView.java
++++ b/node_modules/react-native-pdf/android/src/main/java/org/wonday/pdf/PdfView.java
+@@ -291,7 +291,12 @@
+
+             Configurator configurator;
+
+-            if (this.path.startsWith("content://")) {
++            if (this.path.startsWith("/android_asset/")) {
++                // Load directly from bundled assets using barteksc's fromAsset
++                String assetName = this.path.substring("/android_asset/".length());
++                configurator = this.fromAsset(assetName);
++            } else if (this.path.startsWith("content://")) {
+                 ContentResolver contentResolver = getContext().getContentResolver();
+                 InputStream inputStream = null;
+                 Uri uri = Uri.parse(this.path);

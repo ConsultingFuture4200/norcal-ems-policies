@@ -1,11 +1,5 @@
-const { getDefaultConfig } = require("expo/metro-config");
-const { withNativeWind } = require("nativewind/metro");
+const {getDefaultConfig, mergeConfig} = require('@react-native/metro-config');
 
-const config = getDefaultConfig(__dirname);
+const config = {};
 
-module.exports = withNativeWind(config, {
-  input: "./global.css",
-  // Force write CSS to file system instead of virtual modules
-  // This fixes iOS styling issues in development mode
-  forceWriteFileSystem: true,
-});
+module.exports = mergeConfig(getDefaultConfig(__dirname), config);

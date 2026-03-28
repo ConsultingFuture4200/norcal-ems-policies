@@ -3,7 +3,15 @@ node_modules/
 
 # Build outputs
 android/app/build/
+android/.gradle/
+build/
 *.apk
+
+# JS bundle (regenerable)
+android/app/src/main/assets/index.android.bundle
+
+# Local properties
+android/local.properties
 
 # Pipeline output (regenerable)
 scripts/output/

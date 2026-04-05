@@ -1,20 +1,5 @@
 <!-- To use your own logo: replace the SVG files in assets/ or add a logo image to the <picture> sources -->
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg">
-    <img alt="Nor-Cal EMS Field Guide" src="./assets/banner-light.svg" width="800">
-  </picture>
-</p>
 
-<p align="center">
-  <a href="https://github.com/ConsultingFuture4200/norcal-ems-policies/releases"><img src="https://img.shields.io/github/v/release/ConsultingFuture4200/norcal-ems-policies?style=flat-square&label=APK" alt="Latest Release"></a>
-  <img src="https://img.shields.io/badge/platform-Android-3DDC84?style=flat-square&logo=android&logoColor=white" alt="Platform: Android">
-  <img src="https://img.shields.io/badge/offline-100%25-D32F2F?style=flat-square" alt="Offline">
-  <img src="https://img.shields.io/badge/policies-200%2B-1565C0?style=flat-square" alt="200+ Policies">
-</p>
-
-<p align="center"><strong>All Nor-Cal EMS policies — searchable, offline, always in your pocket.</strong></p>
 
 ---
 
